@@ -9,7 +9,7 @@ io.on("connection", (socket) => {
     socket.join(roomId);
 
     socket.on('new-user', (user) => {
-        console.log(user + ' enter the room')
+        console.log(user + ' joins the room')
         io.in(roomId).emit('new-user', user);
     });
 
