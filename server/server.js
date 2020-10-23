@@ -1,7 +1,7 @@
 const server = require("http").createServer();
 const io = require("socket.io")(server);
 
-const PORT = 5000;
+const PORT = 8000;
 
 io.on("connection", (socket) => {
     const  roomId  = socket.handshake.query['roomId'];
@@ -17,7 +17,7 @@ io.on("connection", (socket) => {
         io.in(roomId).emit('newChatMessage', data);
     });
 
-    socket.on("disconnect", () => {
+    socket.once('disconnect', () => {
         socket.leave(roomId);
     });
 });
