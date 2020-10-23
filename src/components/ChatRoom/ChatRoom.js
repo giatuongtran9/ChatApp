@@ -23,7 +23,7 @@ const ChatRoom = (props) => {
     }
 
     useEffect(() => {
-        socketRef.current = socketIOClient('http://localhost:5000', {
+        socketRef.current = socketIOClient('http://localhost:8000', {
             query: { roomId }
         })
         console.log(socketRef.current)
