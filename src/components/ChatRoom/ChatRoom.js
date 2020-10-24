@@ -23,9 +23,8 @@ const ChatRoom = (props) => {
     }
 
     useEffect(() => {
-        socketRef.current = socketIOClient("/", {
-            query: { roomId }
-        })
+        socketRef.current = socketIOClient()
+        socketRef.current.query = roomId
         console.log(socketRef.current)
 
         socketRef.current.on('newChatMessage', (message) => {
