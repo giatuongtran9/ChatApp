@@ -5,7 +5,7 @@ const io = require("socket.io")(server);
 
 const PORT = process.env.PORT || 8000;
 
-app.use(express.static(__dirname + '../build'))
+app.use(express.static(__dirname + '../../build'))
 
 io.on("connection", (socket) => {
     const  roomId  = socket.handshake.query['roomId'];
