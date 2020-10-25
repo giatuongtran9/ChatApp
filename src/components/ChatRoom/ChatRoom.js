@@ -13,7 +13,7 @@ const ChatRoom = (props) => {
     const [newuser, setNewUser] = useState([])
     const socketRef = useRef()
     const [newMessage, setNewMessage] = useState('')
-
+    const url = "/"
     const sendMessage = (message) => {
         socketRef.current.emit("newChatMessage", {
             body: message,
@@ -23,7 +23,7 @@ const ChatRoom = (props) => {
     }
 
     useEffect(() => {
-        socketRef.current = socketIOClient('/')
+        socketRef.current = socketIOClient(url)
         socketRef.current.query = roomId
         console.log(socketRef.current)
 
