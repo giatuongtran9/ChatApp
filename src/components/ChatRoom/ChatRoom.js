@@ -23,9 +23,9 @@ const ChatRoom = (props) => {
     }
 
     useEffect(() => {
-        socketRef.current = socketIOClient(window.location.hostname)
+        socketRef.current = socketIOClient('/')
         socketRef.current.query = roomId
-        console.log(window.location.hostname)
+        console.log(socketRef.current)
 
         socketRef.current.on('newChatMessage', (message) => {
             const incomingMessage = {
